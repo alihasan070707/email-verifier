@@ -62,6 +62,7 @@ func (v *Verifier) CheckSMTP(domain, username string) (*SMTP, error) {
 	randomEmail := GenerateRandomEmail(domain)
 	if err := client.Rcpt(randomEmail); err != nil {
 		if e := ParseSMTPError(err); e != nil {
+			fmt.Println("rcpt error",err)
 			switch e.Message {
 			case ErrFullInbox:
 				ret.FullInbox = true
