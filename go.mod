@@ -1,4 +1,4 @@
-module github.com/alihasan070707/email-verifier
+module github.com/alihasan070707/email-verifier/v3
 
 go 1.15
 
