@@ -89,7 +89,7 @@ func (v *Verifier) CheckSMTP(domain, username string) (*SMTP, error) {
 		ret.Deliverable = true
 	}
 
-	return &ret, nil
+	return &ret, err
 }
 
 // newSMTPClient generates a new available SMTP client
