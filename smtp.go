@@ -85,15 +85,15 @@ func (v *Verifier) CheckSMTP(domain, username string) (*SMTP, error) {
 	}
 
 	email := fmt.Sprintf("%s@%s", username, domain)
-	var err error
-	err = client.Rcpt(email)
+	var err1 error
+	err1 = client.Rcpt(email)
 	if err == nil {
-		fmt.Println("inside loop",err)
+		fmt.Println("inside loop",err1)
 		ret.Deliverable = true
 	}
 	
-	fmt.Println("outside loop",err)
-	return &ret, err
+	fmt.Println("outside loop",err1)
+	return &ret, err1
 }
 
 // newSMTPClient generates a new available SMTP client
