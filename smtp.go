@@ -86,9 +86,10 @@ func (v *Verifier) CheckSMTP(domain, username string) (*SMTP, error) {
 
 	email := fmt.Sprintf("%s@%s", username, domain)
 	if err := client.Rcpt(email); err == nil {
+		fmt.Println(err)
 		ret.Deliverable = true
 	}
-
+	fmt.Println(err)
 	return &ret, err
 }
 
