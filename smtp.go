@@ -35,16 +35,19 @@ func (v *Verifier) CheckSMTP(domain, username string) (*SMTP, error) {
 	// Dial any SMTP server that will accept a connection
 	client, err := newSMTPClient(domain, v.proxyURI)
 	if err != nil {
+		fmt.Println("error from newSMTPClient", err)
 		return &ret, ParseSMTPError(err)
 	}
 
 	// Sets the HELO/EHLO hostname
 	if err := client.Hello(v.helloName); err != nil {
+		fmt.Println("error from Hello", err)
 		return &ret, ParseSMTPError(err)
 	}
 
 	// Sets the from email
 	if err := client.Mail(v.fromEmail); err != nil {
+		fmt.Println("error from Mail", err)
 		return &ret, ParseSMTPError(err)
 	}
 
