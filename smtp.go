@@ -84,9 +84,9 @@ func (v *Verifier) CheckSMTP(domain, username string) (*SMTP, error) {
 
 	// If the email server is a catch-all email server or no username provided,
 	// no need to calibrate deliverable on a specific user
-	if ret.CatchAll || username == "" {
-		return &ret, nil
-	}
+	//if ret.CatchAll || username == "" {
+	//	return &ret, nil
+	//}
 
 	email := fmt.Sprintf("%s@%s", username, domain)
 	var err1 error
@@ -96,7 +96,7 @@ func (v *Verifier) CheckSMTP(domain, username string) (*SMTP, error) {
 		ret.Deliverable = true
 	}
 	
-	fmt.Println("outside loop",err1)
+	fmt.Println("outside loop",err1,email)
 	return &ret, err1
 }
 
